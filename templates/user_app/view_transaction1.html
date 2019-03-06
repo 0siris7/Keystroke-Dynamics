@@ -1,0 +1,102 @@
+{% include 'user_app/user_header.html' %}
+
+<section id="portfolio" class="light-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="section-title">
+					<h2>view</h2>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+			</div>
+			<div class="col-md-4">
+				<form method="post">
+					<div class="form-group">
+						<label>DATE</label>
+						<input type="text" name="date" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>ACCOUNT NUMBER</label>
+						<input type="text" name="accno" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>DEBIT/CREDIT</label>
+						<input type="text" name="debitcredit" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>AMOUNT</label>
+						<input type="text" name="amt" class="form-control">
+					</div>
+					<div class="form-group">
+						<input type="submit" name="submit" class="btn btn-danger">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% include 'user_app/user_footer.html' %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>view transactions</title>
+</head>
+<body>
+<h3><center>TRANSACTIONS</center></h3>
+<form method="post">
+	<table align="center">
+
+
+	<tr>
+		<th>
+			DATE
+		</th>
+		<th>
+		<input type="text" name="date">
+		</th>
+		</tr>
+		<tr>		
+		<th>
+			ACCOUNT NUMBER
+		</th>
+		<th>
+			<input type="text" name="account_id">
+		</th>
+		</tr>
+		<tr>
+		<th>
+			DEBIT/CREDIT
+		</th>
+		<th>
+		<input type="text" name="debitcredit">
+		</th>
+		</tr>
+		<tr>
+		<th>
+			balance
+		</th>
+		<th>
+			<input type="text" name="balance">
+		</th>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td>
+				<input type="submit" name="submit" value="VIEW TRANSACTIONS">
+			</td>
+		</tr>
+		
+		</table>
+		{{data}}
+	</form>
+
+</body>
+</html>

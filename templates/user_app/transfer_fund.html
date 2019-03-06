@@ -1,0 +1,75 @@
+{% include 'user_app/user_header.html' %}
+
+<section id="portfolio" class="light-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="section-title">
+					<h2>transfer</h2>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+			</div>
+			<div class="col-md-4">
+				<form method="post">
+					<div class="form-group">
+						<label>ACCOUNT NUMBER</label>
+						<input type="text" name="accno" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>AMOUNT</label>
+						<input type="text" name="amt" class="form-control">
+					</div>
+					
+					<div class="form-group">
+						<input type="submit" name="submit" class="btn btn-danger">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% include 'user_app/user_footer.html' %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>transfer funds</title>
+</head>
+<body>
+<h3><center>TRANSFER FUND</center></h3>
+<form method="post">
+	<table align="center">
+	<tr>
+		<td>
+			ACCOUNT NUMBER
+		</td>
+		<td>
+			<input type="text" name="accno">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			AMOUNT
+		</td>
+		<td>
+			<input type="text" name="amt">
+		</td>
+	</tr>
+	<tr>
+	<td>
+	</td>
+		<td>
+			<input type="submit" name="submit" value="TRANSFER">
+		</td>
+	</tr>
+</table>
+{{data}}
+</body>
+</html>
