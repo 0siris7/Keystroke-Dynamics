@@ -2,6 +2,8 @@ from flask import Flask,render_template,request,redirect,url_for,flash,session
 import database as db
 import demjson
 import urllib
+import numpy
+import sklearn
 from core import *
 
 app=Flask(__name__)
@@ -59,6 +61,7 @@ def register_action():
 		log=db.insert(lo)
 		q="insert into users(login_id,f_name,l_name,age,dob,place,city,state,email,phone)values('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(log,fnam,lnam,ag,d,plac,ci,st,eml,phn)
 		res=db.insert(q)
+		train()
 		return "ok"
 
 @app.route('/logout/')
@@ -69,7 +72,10 @@ def logout():
 
 @app.route('/user_home',methods=['get','post'])
 def user_home():
-	return render_template('user_app/user_home.html')
+	login_id = session['login_id']
+	q = db.select("select f_name from users where login_id = '%s' " %(login_id))[0]['f_name']
+	print(q)
+	return render_template('user_app/user_home.html',data=q)
 
 
 @app.route('/add_bank_account',methods=['get','post'])
@@ -88,7 +94,7 @@ def add_bank_account():
 			return redirect(url_for('enter_otp'))
 		else:
 			flash(data['reason'])
-	q = "select * from user_account where user_id=(select user_id from user_login where login_id='%s')" % session['login_id'] 
+	q = "select * from user_account where user_id=(select user_id from users where login_id='%s')" % session['login_id'] 
 	res = db.select(q)
 	return render_template('user_app/user_add_bank_account.html',data=res)
 

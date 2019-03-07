@@ -414,7 +414,7 @@
 				obj.push({name:$(this).attr('name'),value:$(this).val()})
 				obj.push({name:'features',value:JSON.stringify(features)})
 				$.post('/register_action/',obj,function(data){
-					window.location = '/public_home/'
+					window.location = '/'
 				})
 				key_timing = []
 				features = []

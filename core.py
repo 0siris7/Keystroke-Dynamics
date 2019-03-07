@@ -100,3 +100,4 @@ def get_login_id(features):
 # id = get_login_id(features)
 
 # print(id)
+train()
