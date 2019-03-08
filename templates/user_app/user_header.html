@@ -17,6 +17,15 @@
 		<link href="/static/nantes/css/owl.theme.default.min.css"  rel="stylesheet">
 		<link href="/static/nantes/css/animate.css" rel="stylesheet">
 		<link href="/static/nantes/css/style.css" rel="stylesheet">
+		{% with messages = get_flashed_messages() %}
+		  {% if messages %}
+		    <!-- <ul class=flashes> -->
+		    {% for message in messages %}
+		      <script>alert("{{ message }}")</script>
+		    {% endfor %}
+		    <!-- </ul> -->
+		  {% endif %}
+		{% endwith %}
 	</head>
 	<body id="page-top">
 		<!-- Navigation -->
