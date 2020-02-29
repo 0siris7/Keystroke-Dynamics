@@ -18,6 +18,7 @@ def get_data_from(url):
 def home():
 	return render_template('user_app/public_home.html')
 
+
 @app.route('/login_action/',methods=['get','post'])
 def login_action():
 	data = {}
@@ -28,9 +29,9 @@ def login_action():
 		s="select * from user_login where username='%s' and password='%s'"%(name,pas)
 		sel=db.select(s)
 		if len(sel)>0:
-			# features = sel[0]['features']
-			id = get_login_id(features)
-			if id == sel[0]['login_id']:
+			bool = get_login_id(features)
+			print(bool)
+			if bool != -1: 
 				session['login_id'] = sel[0]['login_id']
 				data['status'] = 'success'
 				data['data'] = sel
@@ -144,6 +145,7 @@ def user_view_trasaction():
 	url = "http://127.0.0.1:5001/api/transaction?from_account_no=%s" % from_account_no
 	data = get_data_from(url)
 	return render_template('user_app/user_view_trasaction.html',data=data['data'])
+	return render_template('user_app/user_view_trasaction.html')
 
 @app.route('/user_view_balance',methods=['get','post'])
 def user_view_balance():
@@ -269,5 +271,5 @@ def user_view_balance():
 
 
 
-app.run(debug=True,port=5000)
+app.run(debug=True,port=5004)
 
