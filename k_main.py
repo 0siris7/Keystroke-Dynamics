@@ -24,9 +24,9 @@ def login_action():
 	data = {}
 	if 'login' in request.form:
 		name=request.form['username']
-		pas=request.form['password']
+		#pas=request.form['password']
 		features=request.form['features']
-		s="select * from user_login where username='%s' and password='%s'"%(name,pas)
+		s="select * from user_login where username='%s'"%(name)
 		sel=db.select(s)
 		if len(sel)>0:
 			bool = get_login_id(features)
